@@ -43,5 +43,6 @@ Thumbs.db
 /node_modules
 grunt-config.json
 config.yml
+config.json
 /_site
 assets/logo.png
