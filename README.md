@@ -1,8 +1,8 @@
 # Shay Designs Shopify
 1. Install locally.
-2. Run `npm install`
-3. Run `gulp shopifywatch` to watch local file changes and upload to theme using gulp shopify-upload
-  - Or use [Theme Kit](https://www.shopify.com/partners/blog/95401862-3-simple-steps-for-setting-up-a-local-shopify-theme-development-environment) to upload local files
+2. Run `npm install`.
+3. Run `gulp shopifywatch` to watch local file changes and upload to theme using gulp shopify-upload.
+  - Or use [Theme Kit](https://www.shopify.com/partners/blog/95401862-3-simple-steps-for-setting-up-a-local-shopify-theme-development-environment) to upload local files.
 
 ## Shopify Development Resources
 [Timber Theme Documentation](https://shopify.github.io/Timber/)
