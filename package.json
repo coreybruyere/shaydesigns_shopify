@@ -1,0 +1,27 @@
+{
+  "name": "shaydesigns-shopify",
+  "version": "1.0.0",
+  "description": "Run npm install",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-watch": "^4.3.11",
+    "gulp": "^3.9.1",
+    "gulp-shopify-upload": "^2.0.0",
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coreybruyere/shaydesigns_shopify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coreybruyere/shaydesigns_shopify/issues"
+  },
+  "homepage": "https://github.com/coreybruyere/shaydesigns_shopify#readme"
+}
