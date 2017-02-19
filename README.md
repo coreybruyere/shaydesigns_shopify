@@ -20,10 +20,10 @@ Rebase master into feature branch.
 git checkout dev 
 git rebase master --preserve-merges
 ```
-Rebase feature onto master.
+Edit and commit to feature branch then merge feature into master.
 ```
-git checkout dev
-git rebase master
+git checkout master
+git merge dev
 ```
 Push to remote master. Also closes pull request.
 ```
