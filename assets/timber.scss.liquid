@@ -1784,7 +1784,7 @@ label.error {
 .site-header__logo {
   text-align: center;
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 255px;
 
   @include at-query ($min, $large) {
     text-align: left;
@@ -1802,6 +1802,7 @@ label.error {
 
   img {
     margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -1815,9 +1816,8 @@ label.error {
 }
 
 .site-header__search {
-  display: inline-block;
-  max-width: 400px;
-  margin-top: $gutter / 2;
+  display: block;
+  max-width: 235px;
   width: 100%;
 }
 
