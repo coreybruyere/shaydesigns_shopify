@@ -330,6 +330,18 @@ $pull:               false;
   @include clearfix;
 }
 
+.grid--table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  > .grid__item {
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
 /* Manual grid__item clearfix */
 .grid__item.clear {
   clear: both;
@@ -918,8 +930,8 @@ pre {
 /*================ Horizontal Rules ================*/
 hr {
   clear: both;
-  border-top: solid $colorBorder;
-  border-width: 1px 0 0;
+  border-top: double $colorBorder;
+  border-width: 3px 0 0;
   margin: $gutter 0;
   height: 0;
 
@@ -1611,6 +1623,10 @@ label.error {
   height: 37px;
 }
 
+.input-group .btn {
+  background-color: $colorSecondary;
+}
+
 .input-group .input-group-field {
   width: 100%;
 }
@@ -1767,18 +1783,6 @@ label.error {
 ==============================================================================*/
 .site-header {
   padding: ($gutter / 2) 0;
-
-  .grid--table {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-
-    > .grid__item {
-      float: none;
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
 }
 
 .site-header__logo {
@@ -1816,9 +1820,10 @@ label.error {
 }
 
 .site-header__search {
-  display: block;
-  max-width: 235px;
+  display: inline-block;
+  max-width: 195px;
   width: 100%;
+  vertical-align: bottom;
 }
 
 .search-bar {
@@ -1834,7 +1839,8 @@ label.error {
   #Site Nav and Dropdowns
 ==============================================================================*/
 .nav-bar {
-  background-color: $colorNav;
+  border-top: 3px double $colorBorder;
+  border-bottom: 3px double $colorBorder;
 }
 
 .site-nav {
