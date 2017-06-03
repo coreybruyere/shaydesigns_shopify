@@ -155,42 +155,39 @@
   <div id="PageContainer" class="is-moved-by-drawer">
     <header class="site-header" role="banner">
       <div class="wrapper">
+        <div class="grid">
+          <div class="grid__item large--one-third large--text-left medium-down--hide">
+            <div class="site-header__search">
+              {% include 'search-bar' %}
+            </div>
+          </div>
 
-        <div class="medium-down--hide">
-          <div class="grid">
-            <div class="grid__item large--one-third large--text-left">
-              <div class="site-header__search">
-                {% include 'search-bar' %}
+          <div class="grid__item large--one-third">
+            {% comment %}
+              Use the uploaded logo from theme settings if enabled.
+              Site name gets precedence with H1 tag on homepage, div on other pages.
+            {% endcomment %}
+            {% if template == 'index' %}
+              <h1 class="site-header__logo" itemscope itemtype="http://schema.org/Organization">
+            {% else %}
+              <div class="h1 site-header__logo" itemscope itemtype="http://schema.org/Organization">
+            {% endif %}
+              {% if settings.logo_use_image %}
+                <a href="/" itemprop="url" class="site-header__logo-link">
+                  <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+                </a>
+              {% else %}
+                <a href="/" itemprop="url">{{ shop.name }}</a>
+              {% endif %}
+            {% if template == 'index' %}
+              </h1>
+            {% else %}
               </div>
-            </div>
+            {% endif %}
+          </div>
 
-            <div class="grid__item large--one-third">
-              {% comment %}
-                Use the uploaded logo from theme settings if enabled.
-                Site name gets precedence with H1 tag on homepage, div on other pages.
-              {% endcomment %}
-              {% if template == 'index' %}
-                <h1 class="site-header__logo" itemscope itemtype="http://schema.org/Organization">
-              {% else %}
-                <div class="h1 site-header__logo" itemscope itemtype="http://schema.org/Organization">
-              {% endif %}
-                {% if settings.logo_use_image %}
-                  <a href="/" itemprop="url" class="site-header__logo-link">
-                    <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
-                  </a>
-                {% else %}
-                  <a href="/" itemprop="url">{{ shop.name }}</a>
-                {% endif %}
-              {% if template == 'index' %}
-                </h1>
-              {% else %}
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="grid__item large--one-third large--text-right">
-              social media
-            </div>
+          <div class="grid__item large--one-third large--text-right medium-down--hide">
+            social media
           </div>
         </div>
       </div>
