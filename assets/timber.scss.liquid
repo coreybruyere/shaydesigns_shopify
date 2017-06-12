@@ -93,7 +93,7 @@ $colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
 $colorBtnSecondaryText: #fff;
 
 // Text link colors
-$colorLink: $colorPrimary;
+$colorLink: $colorSecondary;
 $colorLinkHover: lighten($colorPrimary, 15%);
 
 // Text colors
@@ -1073,7 +1073,7 @@ hr {
 a,
 .text-link {
   color: $colorLink;
-  text-decoration: none;
+  // text-decoration: none;
   background: transparent;
 }
 
@@ -1864,6 +1864,8 @@ label.error {
   font-size: em(16px);
   cursor: default;
   margin: 0 0 0 (-$gutter / 2);
+  display: flex;
+  justify-content: space-between;
 
   li {
     margin: 0;
@@ -1879,6 +1881,7 @@ label.error {
 /*================ Home to hamburger and cart that toggle drawers ================*/
 .site-nav--mobile {
   @extend .site-nav;
+  display: block;
 
   .text-right & {
     margin: 0 (-$gutter / 2) 0 0;
@@ -1890,6 +1893,10 @@ label.error {
   text-decoration: none;
   padding: $gutter / 2;
   white-space: nowrap;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  -webkit-font-smoothing: inherit;
   color: $colorNavText;
 
   &:hover,
@@ -2290,11 +2297,25 @@ label.error {
   margin-left: 0;
   padding: 0;
   list-style: none;
+
+
+  @supports (display: grid) {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(2, 1fr);
+
+    @include at-query($min, $large) {    
+      grid-template-rows: repeat(3, 100px);
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+  }
 }
 
 .feature-list__item {
   margin: 0;
-  @include at-query($min, $large) {
+  background: red;
+  @include at-query($min, $large) {    
     float: left;
     width: 33.333333333%;
 
@@ -2311,17 +2332,70 @@ label.error {
       margin-top: 0;
     }
 
-     &:nth-of-type(3n+1) > .feature-list__link {
-       margin-left: 0;
-     }
+    &:nth-of-type(3n+1) > .feature-list__link {
+      margin-left: 0;
+    }
+    @supports (display: grid) {
+      float: none;
+      width: auto;
+    }
   }
 }
+
+// Grid item areas
+.feature-list__item--a {
+  @supports (display: grid) {
+    @include at-query($min, $large) {
+      grid-column: 1 / 3; // Span from grid column line 1 to 3. (i.e., span 2 columns).
+      grid-row: 1 / 3;
+    }
+  }
+}
+
+// .feature-list__item--b {
+//   @supports (display: grid) {
+//     @include at-query($min, $large) {
+//       grid-area: b;
+//     }
+//   }
+// }
+
+// .feature-list__item--c {
+//   @supports (display: grid) {
+//     @include at-query($min, $large) {
+//       grid-area: c;
+//     }
+//   }
+// }
+
+// .feature-list__item--d {
+//   @supports (display: grid) {
+//     @include at-query($min, $large) {
+//       grid-area: d;
+//     }
+//   }
+// }
+
+// .feature-list__item--e {
+//   @supports (display: grid) {
+//     @include at-query($min, $large) {
+//       grid-area: e;
+//     }
+//   }
+// }
+
+// .feature-list__item--f {
+//   @supports (display: grid) {
+//     @include at-query($min, $large) {
+//       grid-area: f;
+//     }
+//   }
+// }
 
 .feature-list__link {
   position: relative;
   display: block;
   background-color: red;
-  padding-top: 56.25%; /* [1] */
   margin-top: 2px; /* [2] */
   border-radius: 2px;
   overflow: hidden;

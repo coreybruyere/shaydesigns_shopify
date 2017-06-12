@@ -187,7 +187,43 @@
           </div>
 
           <div class="grid__item large--one-third large--text-right medium-down--hide">
-            social media
+            {% comment %}
+              Show number of items in the cart and total cost in the /cart link
+
+              Ajax Cart Notes:
+                - #cartCount updates the total number of items in the cart
+                - #cartCost updates the total cost of the cart
+                - Documentation:  http://shopify.com/timber#ajax-cart
+            {% endcomment %}
+            <div>
+              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+                <span class="icon icon-cart" aria-hidden="true"></span>
+                {{ 'layout.cart.title' | t }}
+                (<span id="CartCount">{{ cart.item_count }}</span>
+                {{ 'layout.cart.items_count' | t: count: cart.item_count }}
+                <span id="CartCost">{{ cart.total_price | money }}</span>)
+              </a>
+            </div>
+
+            {% comment %}
+              If customer accounts are enabled, provide login and create account links
+            {% endcomment %}
+            {% if shop.customer_accounts_enabled %}
+              <div>
+                {% if customer %}
+                  {% if customer.first_name != blank %}
+                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+                  {% else %}
+                    <a href="/account">{{ 'layout.customer.account' | t }}</a>
+                  {% endif %}
+                  | {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                {% else %}
+                  {{ 'layout.customer.log_in' | t | customer_login_link }}
+                  | {{ 'layout.customer.create_account' | t | customer_register_link }}
+                {% endif %}
+              </div>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -205,7 +241,7 @@
             {% endcomment %}
             <!-- begin site-nav -->
 
-            <div class="grid__item large--three-quarters large--text-left">
+            <div class="grid__item large--text-left">
               <ul class="site-nav" id="AccessibleNav">
                 {% for link in linklists.main-menu.links %}
                   {% comment %}
@@ -238,46 +274,6 @@
               </ul>
               <!-- //site-nav -->
             </div>
-
-            <div class="grid__item large--one-quarter large--text-right">
-              {% comment %}
-                Show number of items in the cart and total cost in the /cart link
-
-                Ajax Cart Notes:
-                  - #cartCount updates the total number of items in the cart
-                  - #cartCost updates the total cost of the cart
-                  - Documentation:  http://shopify.com/timber#ajax-cart
-              {% endcomment %}
-              <div>
-                <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-                  <span class="icon icon-cart" aria-hidden="true"></span>
-                  {{ 'layout.cart.title' | t }}
-                  (<span id="CartCount">{{ cart.item_count }}</span>
-                  {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-                  <span id="CartCost">{{ cart.total_price | money }}</span>)
-                </a>
-              </div>
-
-              {% comment %}
-                If customer accounts are enabled, provide login and create account links
-              {% endcomment %}
-              {% if shop.customer_accounts_enabled %}
-                <div>
-                  {% if customer %}
-                    {% if customer.first_name != blank %}
-                      {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                      {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-                    {% else %}
-                      <a href="/account">{{ 'layout.customer.account' | t }}</a>
-                    {% endif %}
-                    | {{ 'layout.customer.log_out' | t | customer_logout_link }}
-                  {% else %}
-                    {{ 'layout.customer.log_in' | t | customer_login_link }}
-                    | {{ 'layout.customer.create_account' | t | customer_register_link }}
-                  {% endif %}
-                </div>
-              {% endif %}
-            </div>
           </div>
         </div>
         <div class="large--hide medium-down--show">
@@ -286,7 +282,7 @@
               <div class="site-nav--mobile">
                 <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
                   <span class="icon icon-hamburger" aria-hidden="true"></span>
-                  <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+                  <span>{{ 'layout.navigation.menu' | t }}</span>
                 </button>
               </div>
             </div>
@@ -295,7 +291,7 @@
                 <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
                   <span class="icon-fallback-text">
                     <span class="icon icon-cart" aria-hidden="true"></span>
-                    <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+                    <span>{{ 'layout.cart.title' | t }}</span>
                   </span>
                 </a>
               </div>
@@ -319,22 +315,24 @@
             <div class="grid__item large--one-third medium--one-half">
               <h3>{{ 'layout.footer.social_title' | t }}</h3>
                 <ul class="inline-list social-icons">
-                  {% if settings.social_twitter_link != blank %}
-                    <li>
-                      <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
-                        <span class="icon icon-twitter" aria-hidden="true"></span>
-                        <span class="fallback-text">Twitter</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_facebook_link != blank %}
-                    <li>
+                    <li role="presentation">
                       <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
                         <span class="icon icon-facebook" aria-hidden="true"></span>
                         <span class="fallback-text">Facebook</span>
                       </a>
                     </li>
-                  {% endif %}
+                    <li role="presentation">
+                      <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ shop.name }} on Instagram">
+                        <span class="icon icon-instagram" aria-hidden="true"></span>
+                        <span class="fallback-text">Instagram</span>
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ shop.name }} on Facebook">
+                        <span class="icon icon-pinterest" aria-hidden="true"></span>
+                        <span class="fallback-text">Pinterest</span>
+                      </a>
+                    </li>
                 </ul>
             </div>
           {% endif %}

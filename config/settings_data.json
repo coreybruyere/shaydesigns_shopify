@@ -15,9 +15,10 @@
       "favicon_enable": false,
       "footer_newsletter_enable": true,
       "footer_social_enable": true,
-      "logo_use_image": false,
-      "social_facebook_link": "",
-      "social_twitter_link": ""
+      "logo_use_image": true,
+      "social_facebook_link": "https://www.facebook.com/Shay-Designs-Personalized-Jewelry-233993026615495/",
+      "social_instagram_link": "https://www.instagram.com/shaydesigns/",
+      "social_pinterest_link": "https://www.pinterest.com/shay123/shay-designs/"
     }
   }
 }
