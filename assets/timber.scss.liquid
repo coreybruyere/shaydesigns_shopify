@@ -2302,11 +2302,11 @@ label.error {
   @supports (display: grid) {
     display: grid;
     grid-gap: 10px;
-    grid-template-rows: repeat(3, 100px);
+    grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(2, 1fr);
 
     @include at-query($min, $large) {    
-      grid-template-rows: repeat(3, 100px);
+      grid-template-rows: repeat(3, auto);
       grid-template-columns: repeat(3, minmax(200px, 1fr));
     }
   }
