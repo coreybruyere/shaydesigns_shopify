@@ -189,7 +189,7 @@
                 - Documentation:  http://shopify.com/timber#ajax-cart
             {% endcomment %}
             <div>
-              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+              <a href="/cart" class="site-header__cart-toggle btn btn--ghost fdsa js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
                 <span class="icon icon-cart" aria-hidden="true"></span>
                 {{ 'layout.cart.title' | t }}
                 (<span id="CartCount">{{ cart.item_count }}</span>
@@ -315,7 +315,7 @@
                     <li>
                       <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
                         <span class="icon icon-twitter" aria-hidden="true"></span>
-                        <span class="fallback-text">dTwitter</span>
+                        <span class="fallback-text">Twitter</span>
                       </a>
                     </li>
                   {% comment %}{% endif %}{% endcomment %}

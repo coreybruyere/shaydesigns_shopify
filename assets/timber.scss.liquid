@@ -83,18 +83,18 @@ $colorSecondary: {{ settings.color_secondary }};
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
-$colorBtnPrimaryHover: darken($colorBtnPrimary, 10%);
+$colorBtnPrimaryHover: lighten($colorBtnPrimary, 10%);
 $colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
 $colorBtnPrimaryText: #fff;
 
 $colorBtnSecondary: $colorSecondary;
-$colorBtnSecondaryHover: darken($colorBtnSecondary, 10%);
+$colorBtnSecondaryHover: lighten($colorBtnSecondary, 10%);
 $colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
 $colorBtnSecondaryText: #fff;
 
 // Text link colors
-$colorLink: $colorSecondary;
-$colorLinkHover: lighten($colorPrimary, 15%);
+$colorLink: $colorPrimary;
+$colorLinkHover: lighten($colorPrimary, 10%);
 
 // Text colors
 $colorTextBody: {{ settings.color_body_text }};
@@ -1150,6 +1150,19 @@ html input[disabled] {
   }
 }
 
+.btn--ghost {
+  background-color: transparent;
+  border-color: $colorBtnPrimary;
+  color: $colorBtnPrimary;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent;
+    color: $colorBtnPrimaryHover;
+  }
+}
+
 .btn--small {
   padding: 4px 5px;
   font-size: em(12px);
@@ -1717,6 +1730,7 @@ label.error {
 .payment-icons {
   @include user-select(none);
   cursor: default;
+  opacity: .75;
 
   li {
     margin: 0 ($gutter / 4) ($gutter / 4);
@@ -1790,6 +1804,7 @@ label.error {
   text-align: center;
   margin: 0 auto;
   max-width: 255px;
+  height: 108px;
 
   &:after {
     position: absolute;
@@ -1928,6 +1943,8 @@ label.error {
   left: 0;
   margin: 0;
   z-index: $zindexNavDropdowns;
+  border: 1px solid darken($colorNav, 10%);
+  border-radius: $radius;
 
   .supports-no-touch .site-nav--has-dropdown:hover &,
   .site-nav--has-dropdown.nav-hover &,
@@ -1937,6 +1954,7 @@ label.error {
 
   a {
     background-color: $colorNav;
+    padding-right: 40px;
 
     &:hover,
     &:active,

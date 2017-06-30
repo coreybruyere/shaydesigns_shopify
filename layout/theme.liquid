@@ -196,7 +196,7 @@
                 - Documentation:  http://shopify.com/timber#ajax-cart
             {% endcomment %}
             <div>
-              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+              <a href="/cart" class="site-header__cart-toggle btn btn--ghost e js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
                 <span class="icon icon-cart" aria-hidden="true"></span>
                 {{ 'layout.cart.title' | t }}
                 (<span id="CartCount">{{ cart.item_count }}</span>
@@ -383,7 +383,7 @@
             {% endcomment %}
             {% unless shop.enabled_payment_types == empty %}
               {% assign payment_icons_available = 'amazon_payments,american_express,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
-              <h4 class="text-center">{{ 'layout.footer.accepted_payments' | t }}</h4>
+              <h4 class="text-center visually-hidden">{{ 'layout.footer.accepted_payments' | t }}</h4>
               <ul class="inline-list payment-icons">
                 {% for type in shop.enabled_payment_types %}
                   {% if payment_icons_available contains type %}
@@ -397,8 +397,6 @@
                 {% endfor %}
               </ul>
             {% endunless %}
-            <a href="http://shopify.com/timber">Timber Theme Framework</a> by <a href="http://www.shopify.com?ref=Timber" title="Shopify.com">Shopify</a><br>
-            <small>{{ powered_by_link }}</small>
           </div>
         </div>
       </div>
