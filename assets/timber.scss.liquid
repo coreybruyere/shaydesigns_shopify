@@ -1880,7 +1880,7 @@ label.error {
   cursor: default;
   margin: 0 0 0 (-$gutter / 2);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   li {
     margin: 0;
@@ -1914,6 +1914,10 @@ label.error {
   -webkit-font-smoothing: inherit;
   color: $colorNavText;
 
+  @include at-query($min, $large) {
+    padding: $gutter / 2 $gutter;
+  }
+
   &:hover,
   &:active,
   &:focus {
@@ -1922,13 +1926,22 @@ label.error {
 
   .icon-arrow-down {
     position: relative;
-    top: -2px;
+    top: 0;
     font-size: 10px;
-    padding-left: $gutter / 4;
+    padding-left: $gutter / 8;
   }
 
   .site-nav--active > & {
-    font-weight: bold;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      display: block;
+      width: 100%;
+      border-bottom: $radius solid $colorLinkHover;
+    }
   }
 
   .site-nav--mobile & {
@@ -2255,9 +2268,9 @@ label.error {
 /*============================================================================
   #Collection Filters
 ==============================================================================*/
-.filter--active {
-  font-weight: bold;
-}
+// .filter--active {
+//   font-weight: bold;
+// }
 
 /*============================================================================
   #Breadcrumbs
@@ -2422,6 +2435,45 @@ label.error {
     margin-left: 2px;
   }
 }
+
+/*============================================================================
+  #Tag List
+==============================================================================*/
+.tag-list {
+  display: block;
+}
+
+.tag-list__item {
+  display: inline-block;
+  border: 1px solid $colorBorder;
+  border-radius: $radius;
+
+  > a {
+    display: block;
+    padding: 2px 5px;
+    font-size: em(12px);
+    color: $colorLink;
+    border-left: 3px solid $colorSecondary;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $colorLinkHover; 
+    }
+  }
+
+  &.is-active a {
+    color: $colorBtnPrimaryText;
+    background-color: $colorSecondary;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+
+    }
+  }
+}
+
 
 /*============================================================================
   #Notes and Form Feedback

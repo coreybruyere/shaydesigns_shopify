@@ -20,8 +20,8 @@
     To provide a 'catch-all' link at the top of the list,
     check against the collection.handle, product type, and vendor.
   {% endcomment %}
-  <ul class="no-bullets">
-    <li{% unless current_tags %} class="filter--active"{% endunless %}>
+  <ul class="tag-list no-bullets">
+    <li class="tag-list__item {% unless current_tags %} is-active {% endunless %}">
 
       {% comment %}
         Good for /collections/all collection and regular collections
@@ -54,11 +54,11 @@
     {% endcomment %}
     {% for tag in collection.all_tags %}
       {% if current_tags contains tag %}
-        <li class="filter--active">
+        <li class="tag-list__item is-active">
           {{ tag | link_to_remove_tag: tag }}
         </li>
       {% else %}
-        <li>
+        <li class="tag-list__item">
           {% comment %}
             Use link_to_add_tag if you want to allow filtering
             by multiple tags
