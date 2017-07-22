@@ -80,17 +80,18 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 // Timber Colors
 $colorPrimary: {{ settings.color_primary }};
 $colorSecondary: {{ settings.color_secondary }};
+$colorTertiary: #fff;
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
 $colorBtnPrimaryHover: lighten($colorBtnPrimary, 10%);
 $colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
-$colorBtnPrimaryText: #fff;
+$colorBtnPrimaryText: $colorTertiary;
 
 $colorBtnSecondary: $colorSecondary;
 $colorBtnSecondaryHover: lighten($colorBtnSecondary, 10%);
 $colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
-$colorBtnSecondaryText: #fff;
+$colorBtnSecondaryText: $colorTertiary;
 
 // Text link colors
 $colorLink: $colorPrimary;
@@ -2325,13 +2326,13 @@ label.error {
 
 .feature-list {
   @include clearfix();
-  margin-left: 0;
+  margin-left: -10px;
   padding: 0;
   list-style: none;
 
-
   @supports (display: grid) {
     display: grid;
+    margin: 0;
     grid-gap: 10px;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(2, 1fr);
@@ -2344,38 +2345,36 @@ label.error {
 }
 
 .feature-list__item {
-  margin: 0;
+  margin: 0 0 $gridGutter;
   background: red;
+
+  @supports (display: grid) {
+    margin-bottom: 0
+  }
+
   @include at-query($min, $large) {    
     float: left;
     width: 33.333333333%;
+    padding-left: 10px;
+    margin-bottom: 10px;
 
-    &:nth-child(3n+1):last-child { /* [2] */
-      width: 100%;
-    }
-
-    &:nth-child(3n+1):nth-last-child(2),
-    &:nth-child(3n+1):nth-last-child(2) + & { /* [2] */
-      width: 50%;
-    }
-
-    &:nth-of-type(-n+3) > .feature-list__link {
-      margin-top: 0;
-    }
-
-    &:nth-of-type(3n+1) > .feature-list__link {
-      margin-left: 0;
-    }
     @supports (display: grid) {
-      float: none;
-      width: auto;
+      float: none !important;
+      width: auto !important;
+      padding-left: 0 !important;
+      margin-bottom: 0 !important;
     }
+  }
+
+  img {
+    display: block;
   }
 }
 
 // Grid item areas
 .feature-list__item--a {
   @supports (display: grid) {
+    width: auto;
     @include at-query($min, $large) {
       grid-column: 1 / 3; // Span from grid column line 1 to 3. (i.e., span 2 columns).
       grid-row: 1 / 3;
@@ -2383,56 +2382,44 @@ label.error {
   }
 }
 
-// .feature-list__item--b {
-//   @supports (display: grid) {
-//     @include at-query($min, $large) {
-//       grid-area: b;
-//     }
-//   }
-// }
+.feature-list__item--h {
+  @supports (display: grid) {
+    @include at-query($min, $large) {
+      grid-column: 2 / 4; // Span from grid column line 1 to 3. (i.e., span 2 columns).
+      grid-row: 4 / 5;
+    }
+  }
+}
 
-// .feature-list__item--c {
-//   @supports (display: grid) {
-//     @include at-query($min, $large) {
-//       grid-area: c;
-//     }
-//   }
-// }
-
-// .feature-list__item--d {
-//   @supports (display: grid) {
-//     @include at-query($min, $large) {
-//       grid-area: d;
-//     }
-//   }
-// }
-
-// .feature-list__item--e {
-//   @supports (display: grid) {
-//     @include at-query($min, $large) {
-//       grid-area: e;
-//     }
-//   }
-// }
-
-// .feature-list__item--f {
-//   @supports (display: grid) {
-//     @include at-query($min, $large) {
-//       grid-area: f;
-//     }
-//   }
-// }
+.feature-list__title {
+  display: table;
+  margin: auto;
+  width: 80%;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  z-index: 1;
+  transform: translateY(-70%) translateX(-50%);
+  text-align: center;
+  background-color: $colorSecondary;
+  color: $colorTertiary;
+}
 
 .feature-list__link {
   position: relative;
   display: block;
-  background-color: red;
-  margin-top: 2px; /* [2] */
-  border-radius: 2px;
+  height: 100%;
   overflow: hidden;
 
-  @include at-query($min, $large) {
-    margin-left: 2px;
+  > img {
+    width: 100%;
+    object-fit: cover;
+    @include at-query($min, $large) {
+      width: auto;
+      @supports (display: grid) {
+        height: 100%;
+      }
+    }
   }
 }
 
