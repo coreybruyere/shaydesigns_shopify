@@ -1815,12 +1815,10 @@ label.error {
     width: 100%;
     height: 200px;
     content: '';
-    background: {
-      image: url('{{ "sd-logo-bg.png" | asset_url }}');
-      size: 85%;
-      repeat: no-repeat;
-      position: 50% 50%;
-    }
+    background-image: url({{ 'sd-logo-bg-comp.png' | asset_url }});
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
   }
 
   @include at-query ($min, $large) {
