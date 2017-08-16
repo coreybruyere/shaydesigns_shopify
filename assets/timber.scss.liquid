@@ -2346,7 +2346,6 @@ label.error {
 
 .feature-list__item {
   margin: 0 0 $gridGutter;
-  background: red;
 
   @supports (display: grid) {
     margin-bottom: 0
@@ -2391,12 +2390,15 @@ label.error {
   }
 }
 
+.feature-list__item--border {
+  border: 4px solid $colorSecondary;
+}
+
 .feature-list__title {
   display: inline-block;
   margin: auto;
-  padding: 6px 12px;
   position: absolute;
-  bottom: 18px;
+  bottom: 24px;
   left: 24px;
   z-index: 1;
   text-align: left;
@@ -2413,6 +2415,11 @@ label.error {
   //   background-image: url({{ 'paint-bg.png' | asset_url }});
   //   background-repeat: no-repeat;
   // }
+}
+
+// Container for text content
+.feature-list__content {
+  padding: 24px;
 }
 
 .feature-list__link {
