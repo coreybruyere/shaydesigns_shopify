@@ -2413,7 +2413,14 @@ label.error {
     width: 100%;
     object-fit: cover;
     @include at-query($min, $large) {
-      width: auto;
+      // width: auto;
+      // Width auto is weird on browsers that don't support object-fit.
+      // But height isn't constrained on images when it's not used.
+      // Only use on last two items (Free shipping img and newsletter)
+      .feature-list__item--g,
+      .feature-list__item--h & {
+        width: auto;
+      }
       @supports (display: grid) {
         height: 100%;
       }

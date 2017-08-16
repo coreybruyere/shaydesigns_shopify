@@ -16,7 +16,12 @@
       <h3 class="feature-list__title">The title
         <span class="feature-list__sub">Sub</span>
       </h3>
-      <img src="{{ 'home-page-large-main.jpg' | asset_url }}" alt="">
+      <img src="{{ 'home-page-large-main.jpg' | asset_url }}" 
+        sizes="(max-width: 48em) 50vw, 66vw"
+        srcset="{{ 'home-page-large.jpg' | asset_url }} 760w, 
+        {{ 'home-page-large-1-5x.jpg' | asset_url }} 1140w,
+        {{ 'home-page-large-2-x.jpg' | asset_url }} 1520w" 
+        alt="" />
     </a>
   </li>
 
