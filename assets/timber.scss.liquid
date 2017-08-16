@@ -77,10 +77,14 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
   #General Variables
 ==============================================================================*/
 
+// Basic Colors
+$colorBlack: #000;
+$colorWhite: #fff;
+
 // Timber Colors
 $colorPrimary: {{ settings.color_primary }};
 $colorSecondary: {{ settings.color_secondary }};
-$colorTertiary: #fff;
+$colorTertiary: $colorWhite;
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
@@ -808,8 +812,6 @@ select {
 
 h1, h2, h3, h4, h5, h6 {
   display: block;
-  font-family: $headerFontStack;
-  font-weight: $headerFontWeight;
   margin: 0 0 0.5em;
   line-height: 1.4;
 
@@ -2390,17 +2392,27 @@ label.error {
 }
 
 .feature-list__title {
-  display: table;
+  display: inline-block;
   margin: auto;
-  width: 80%;
+  padding: 6px 12px;
   position: absolute;
-  top: 70%;
-  left: 50%;
+  bottom: 18px;
+  left: 24px;
   z-index: 1;
-  transform: translateY(-70%) translateX(-50%);
-  text-align: center;
-  background-color: $colorSecondary;
+  text-align: left;
   color: $colorTertiary;
+
+  // &::before {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 200px;
+  //   height: 200px;
+  //   background-image: url({{ 'paint-bg.png' | asset_url }});
+  //   background-repeat: no-repeat;
+  // }
 }
 
 .feature-list__link {
@@ -2408,6 +2420,46 @@ label.error {
   display: block;
   height: 100%;
   overflow: hidden;
+
+  &:hover,
+  &:focus {
+    // Less Black shadow on hover;
+    &::before {
+      opacity: .4;
+    }
+
+    .feature-list__title {
+      // @extend .btn;
+      // background: $colorPrimary;
+    }
+  }
+
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transition: all .15s ease-in-out;
+  }
+
+  // Background overlay
+  &::after {
+    top: 0;
+    height: 100%;
+    background: linear-gradient(to bottom right, $colorPrimary, $colorSecondary);
+    opacity: .25;
+  }
+
+  // Background black bottom shadow
+  &::before {
+    z-index: 1;
+    bottom: 0;
+    height: 100%;
+    background: linear-gradient(to top, $colorBlack, transparent);
+    opacity: .5;
+  }
 
   > img {
     width: 100%;
@@ -2427,6 +2479,7 @@ label.error {
     }
   }
 }
+
 
 /*============================================================================
   #Tag List
