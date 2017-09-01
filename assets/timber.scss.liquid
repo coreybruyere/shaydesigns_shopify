@@ -2335,7 +2335,7 @@ label.error {
     margin: 0;
     grid-gap: 10px;
     grid-template-rows: repeat(3, auto);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 
     @include at-query($min, $large) {    
       grid-template-rows: repeat(3, auto);
@@ -2383,9 +2383,10 @@ label.error {
 
 .feature-list__item--h {
   @supports (display: grid) {
+    grid-row: 4 / 8;
     @include at-query($min, $large) {
       grid-column: 2 / 4; // Span from grid column line 1 to 3. (i.e., span 2 columns).
-      grid-row: 4 / 5;
+      grid-row: 3 / 4;
     }
   }
 }
@@ -2471,18 +2472,28 @@ label.error {
   > img {
     width: 100%;
     object-fit: cover;
-    @include at-query($min, $large) {
-      // width: auto;
-      // Width auto is weird on browsers that don't support object-fit.
-      // But height isn't constrained on images when it's not used.
-      // Only use on last two items (Free shipping img and newsletter)
-      .feature-list__item--g,
-      .feature-list__item--h & {
-        width: auto;
-      }
-      @supports (display: grid) {
-        height: 100%;
-      }
+  }
+}
+
+// Width auto is weird on browsers that don't support object-fit.
+// But height isn't constrained on images when it's not used.
+// Only use on non-conventional grid items (Free shipping img and newsletter)
+// .feature-list__item--d,
+// .feature-list__item--h {
+//   @include at-query($min, $large) {
+//     img {
+//       width: auto;
+//       @supports (display: grid) {
+//         height: 100%;
+//       }
+//     }
+//   }
+// }
+.feature-list__item--d,
+.feature-list__item--h {
+  @include at-query($min, $large) {
+    img {
+      width: auto;
     }
   }
 }

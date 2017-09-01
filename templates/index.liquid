@@ -16,8 +16,9 @@
       <h3 class="feature-list__title">The title
         <span class="feature-list__sub">Sub</span>
       </h3>
+      {% comment %} default: 760x460 - 1.5x: 1140x690 - 2x: 1520x920 {% endcomment %}
       <img src="{{ 'home-page-large-main.jpg' | asset_url }}" 
-        sizes="(max-width: 48em) 50vw, 66vw"
+        sizes="(max-width: 48em) 100vw, 66vw"
         srcset="{{ 'home-page-large.jpg' | asset_url }} 760w, 
         {{ 'home-page-large-1-5x.jpg' | asset_url }} 1140w,
         {{ 'home-page-large-2-x.jpg' | asset_url }} 1520w" 
@@ -30,26 +31,26 @@
       <h3 class="feature-list__title">The title
         <span class="feature-list__sub">Sub</span>
       </h3>
-      {% comment %}<img src="{{ 'tout-sale325x200.jpg' | asset_url }}" alt="">{% endcomment %}
+      {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
       <img src="https://placehold.it/380x230" alt="">
     </a>
   </li>
 
-  <li class="feature-list__item feature-list__item--c feature-list__item--border">
+  <li class="feature-list__item feature-list__item--c">
     <a href="#" class="feature-list__link">
-      {% comment %}<img src="{{ 'tout-blog325x200.jpg' | asset_url }}" alt="">{% endcomment %}
+      {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
       <img src="https://placehold.it/380x230" alt="">
     </a>
   </li>
 
-  <li class="feature-list__item feature-list__item--d">
-    <a href="#" class="feature-list__link">
-      <h3 class="feature-list__title">The title
-        <span class="feature-list__sub">Sub</span>
-      </h3>
-      {% comment %}<img src="{{ 'tout-necklate325x200.jpg' | asset_url }}" alt="">{% endcomment %}
-      <img src="https://placehold.it/380x230" alt="">
-    </a>
+  <li class="feature-list__item feature-list__item--d feature-list__item--border" id="sd-promo">
+    {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
+    <img src="{{ 'home-page-promotion.png' | asset_url }}" 
+      sizes="(max-width: 48em) 100vw, 33vw"
+      srcset="{{ 'home-page-promotion.png' | asset_url }} 380w, 
+      {{ 'home-page-promotion-1-5x.png' | asset_url }} 570w,
+      {{ 'home-page-promotion-2-x.png' | asset_url }} 760w" 
+      alt="Free Shipping on orders over $100" />
   </li>
 
   <li class="feature-list__item feature-list__item--e">
@@ -57,7 +58,7 @@
       <h3 class="feature-list__title">The title
         <span class="feature-list__sub">Sub</span>
       </h3>
-      {% comment %}<img src="{{ 'tout-bracelet325x200.jpg' | asset_url }}" alt="">{% endcomment %}
+      {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
       <img src="https://placehold.it/380x230" alt="">
     </a>
   </li>
@@ -67,7 +68,7 @@
       <h3 class="feature-list__title">The title
         <span class="feature-list__sub">Sub</span>
       </h3>
-      {% comment %}<img src="{{ 'tout-rings325x200.jpg' | asset_url }}" alt="">{% endcomment %}
+      {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
       <img src="https://placehold.it/380x230" alt="">
     </a>
   </li>
@@ -77,12 +78,12 @@
       <h3 class="feature-list__title">The title
         <span class="feature-list__sub">Sub</span>
       </h3>
-      {% comment %}<img src="{{ 'tout-rings325x200.jpg' | asset_url }}" alt="">{% endcomment %}
+      {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
       <img src="https://placehold.it/380x230" alt="">
     </a>
   </li>
 
-  <li class="feature-list__item feature-list__item--h feature-list__item--border">
+  <li class="feature-list__item feature-list__item--h feature-list__item--border" id="sd-newsletter">
     <div class="feature-list__content text-center">
       <h3>Subscribe to the Newsletter</h3>
       <p>Join the ShayDesigns mailing list for amazing deals, new arrivals, exclusive sales, and more! Don't worry we won't spam your inbox.</p>
