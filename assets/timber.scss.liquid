@@ -2328,7 +2328,7 @@ label.error {
   @include clearfix();
   margin-left: -10px;
   padding: 0;
-  list-style: none;
+  list-style: none; 
 
   @supports (display: grid) {
     display: grid;
@@ -2392,7 +2392,9 @@ label.error {
 }
 
 .feature-list__item--border {
-  border: 4px solid $colorSecondary;
+  @supports (display: grid) {
+    border: 4px solid $colorSecondary;
+  }
 }
 
 .feature-list__title {
@@ -2495,6 +2497,12 @@ label.error {
     img {
       width: auto;
     }
+  }
+}
+
+.feature-list__item--a {
+  img {
+    height: 100%;
   }
 }
 
