@@ -13,9 +13,7 @@
 <ul class="feature-list">
   <li class="feature-list__item feature-list__item--a">
     <a href="#" class="feature-list__link">
-      <h3 class="feature-list__title">The title
-        <span class="feature-list__sub">Sub</span>
-      </h3>
+      <h3 class="feature-list__title">Shop All</h3>
       {% comment %} default: 760x460 - 1.5x: 1140x690 - 2x: 1520x920 {% endcomment %}
       <img src="{{ 'home-page-large-main.jpg' | asset_url }}" 
         sizes="(max-width: 48em) 100vw, 66vw"
@@ -28,19 +26,28 @@
 
   <li class="feature-list__item feature-list__item--b">
     <a href="#" class="feature-list__link">
-      <h3 class="feature-list__title">The title
-        <span class="feature-list__sub">Sub</span>
-      </h3>
+      <h3 class="feature-list__title">Mother</h3>
       {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
-      <img src="https://placehold.it/380x230" alt="">
-    </a>
+      <img src="{{ 'home-page-faith.jpg' | asset_url }}" 
+        sizes="(max-width: 48em) 100vw, 33vw"
+        srcset="{{ 'home-page-faith.jpg' | asset_url }} 380w, 
+        {{ 'home-page-faith-1-5x.jpg' | asset_url }} 570w,
+        {{ 'home-page-faith-2-x.jpg' | asset_url }} 760w" 
+        alt="" />
+      </a>
   </li>
 
   <li class="feature-list__item feature-list__item--c">
     <a href="#" class="feature-list__link">
+      <h3 class="feature-list__title">Faith</h3>
       {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
-      <img src="https://placehold.it/380x230" alt="">
-    </a>
+      <img src="{{ 'home-page-faith.jpg' | asset_url }}" 
+        sizes="(max-width: 48em) 100vw, 33vw"
+        srcset="{{ 'home-page-faith.jpg' | asset_url }} 380w, 
+        {{ 'home-page-faith-1-5x.jpg' | asset_url }} 570w,
+        {{ 'home-page-faith-2-x.jpg' | asset_url }} 760w" 
+        alt="" />
+      </a>
   </li>
 
   <li class="feature-list__item feature-list__item--d feature-list__item--border" id="sd-promo">
@@ -55,31 +62,40 @@
 
   <li class="feature-list__item feature-list__item--e">
     <a href="#" class="feature-list__link">
-      <h3 class="feature-list__title">The title
-        <span class="feature-list__sub">Sub</span>
-      </h3>
+      <h3 class="feature-list__title">Necklaces</h3>
       {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
-      <img src="https://placehold.it/380x230" alt="">
-    </a>
+      <img src="{{ 'home-page-necklace.jpg' | asset_url }}" 
+        sizes="(max-width: 48em) 100vw, 33vw"
+        srcset="{{ 'home-page-necklace.jpg' | asset_url }} 380w, 
+        {{ 'home-page-necklace-1-5x.jpg' | asset_url }} 570w,
+        {{ 'home-page-necklace-2-x.jpg' | asset_url }} 760w" 
+        alt="" />
+      </a>
   </li>
 
   <li class="feature-list__item feature-list__item--f">
     <a href="#" class="feature-list__link">
-      <h3 class="feature-list__title">The title
-        <span class="feature-list__sub">Sub</span>
-      </h3>
+      <h3 class="feature-list__title">Bracelets</h3>
       {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
-      <img src="https://placehold.it/380x230" alt="">
-    </a>
+      <img src="{{ 'home-page-bracelet.jpg' | asset_url }}" 
+        sizes="(max-width: 48em) 100vw, 33vw"
+        srcset="{{ 'home-page-bracelet.jpg' | asset_url }} 380w, 
+        {{ 'home-page-bracelet-1-5x.jpg' | asset_url }} 570w,
+        {{ 'home-page-bracelet-2-x.jpg' | asset_url }} 760w" 
+        alt="" />
+      </a>
   </li>
 
   <li class="feature-list__item feature-list__item--g">
     <a href="#" class="feature-list__link">
-      <h3 class="feature-list__title">The title
-        <span class="feature-list__sub">Sub</span>
-      </h3>
+      <h3 class="feature-list__title">Rings</h3>
       {% comment %} default: 380x230 - 1.5x: 570x345 - 2x: 760x460 {% endcomment %}
-      <img src="https://placehold.it/380x230" alt="">
+      <img src="{{ 'home-page-ring.jpg' | asset_url }}" 
+        sizes="(max-width: 48em) 100vw, 33vw"
+        srcset="{{ 'home-page-ring.jpg' | asset_url }} 380w, 
+        {{ 'home-page-ring-1-5x.jpg' | asset_url }} 570w,
+        {{ 'home-page-ring-2-x.jpg' | asset_url }} 760w" 
+        alt="" />
     </a>
   </li>
 
