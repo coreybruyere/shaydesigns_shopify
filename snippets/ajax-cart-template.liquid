@@ -101,7 +101,11 @@
           {% endraw %}{{ 'cart.general.checkout' | t }}{% raw %} &rarr;
         </button>
         {% endraw %}{% if additional_checkout_buttons %}
-          <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
+          <div class="cart__buttons">
+            <p class="text-center">Or checkout with:</p>
+          
+            <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
+          </div>
         {% endif %}{% raw %}
       </div>
     </form>
