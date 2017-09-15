@@ -128,15 +128,17 @@ In order to edit custom CSS for Bold Product Options you should:
 /* default styles for the priced options total */
 .bold_option_total > div {
     padding: 5px 12px;
-    background: #fff;
-    text-align: center;
+    // background: #fff;
+    // text-align: center;
 }
 
 .bold_option_total span {
-    color: #AD0000;
+    // color: #AD0000;
     font-weight: bold;
     display: inline-block;
+    background-color: #fff6a8;
     margin: 0 5px;
+    padding: 4px;
 }
 
 /* custom styles for the priced options total */
