@@ -190,6 +190,26 @@
 
           <div class="grid__item large--one-third large--text-right medium-down--hide">
             {% comment %}
+              If customer accounts are enabled, provide login and create account links
+            {% endcomment %}
+            {% if shop.customer_accounts_enabled %}
+              <div style="margin-bottom: 1em">
+                {% if customer %}
+                  {% if customer.first_name != blank %}
+                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+                  {% else %}
+                    <a href="/account">{{ 'layout.customer.account' | t }}</a>
+                  {% endif %}
+                  | {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                {% else %}
+                  {{ 'layout.customer.log_in' | t | customer_login_link }}
+                  | {{ 'layout.customer.create_account' | t | customer_register_link }}
+                {% endif %}
+              </div>
+            {% endif %}
+
+            {% comment %}
               Show number of items in the cart and total cost in the /cart link
 
               Ajax Cart Notes:
@@ -206,26 +226,6 @@
                 <span id="CartCost">{{ cart.total_price | money }}</span>)
               </a>
             </div>
-
-            {% comment %}
-              If customer accounts are enabled, provide login and create account links
-            {% endcomment %}
-            {% if shop.customer_accounts_enabled %}
-              <div>
-                {% if customer %}
-                  {% if customer.first_name != blank %}
-                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-                  {% else %}
-                    <a href="/account">{{ 'layout.customer.account' | t }}</a>
-                  {% endif %}
-                  | {{ 'layout.customer.log_out' | t | customer_logout_link }}
-                {% else %}
-                  {{ 'layout.customer.log_in' | t | customer_login_link }}
-                  | {{ 'layout.customer.create_account' | t | customer_register_link }}
-                {% endif %}
-              </div>
-            {% endif %}
           </div>
         </div>
       </div>
