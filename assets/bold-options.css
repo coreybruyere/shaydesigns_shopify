@@ -51,7 +51,7 @@ In order to edit custom CSS for Bold Product Options you should:
             }
 
     .bold_option_dropdown .bold_option_element {
-        margin-left: 5px;
+        // margin-left: 5px;
     }
     .bold_option_value {
         margin-right: 15px;
@@ -152,7 +152,7 @@ In order to edit custom CSS for Bold Product Options you should:
 .bold_option_error,
 .bold_option_error .bold_option_title,
 .bold_error_message {
-    color: red;
+    color: #e74c3c;
 }
 
 .bold_error_message {
