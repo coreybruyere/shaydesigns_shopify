@@ -18,7 +18,7 @@ gulp.task('shopifywatch', function() {
     config.shopify_api_key,
     config.shopify_api_password,
     config.shopify_url,
-    config.shopify_theme_id)
+    config.shopify_dev_theme_id)
   );
 });
 
