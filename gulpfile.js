@@ -8,6 +8,9 @@ const config = require('./config.json');
 
 /** 
  * Watch Task
+ * For dev environment: *
+ * Choose duplicated test theme, get theme ID and pass to gulpShopify Task.
+ * gulpShopify('API KEY', 'PASSWORD', 'MYSITE.myshopify.com', 'THEME ID', options)
  */
 gulp.task('shopifywatch', function() {
   return watch('./+(assets|layout|config|snippets|templates|locales)/**')
