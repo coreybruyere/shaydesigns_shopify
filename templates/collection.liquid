@@ -52,8 +52,8 @@
         See the snippet 'product-grid-item' for the layout.
       {% endcomment %}
       {% for product in collection.products %}
-      
-      	{% include 'bold-product' with product, hide_action: 'skip' %}
+        {% comment %} Bold:POv2 {% endcomment %}
+        {%- include 'bold-product' with product, hide_action: 'skip' -%}
 
         {% include 'product-grid-item' %}
 

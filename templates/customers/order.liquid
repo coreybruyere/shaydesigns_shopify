@@ -35,28 +35,40 @@
         <tbody>
           {% for line_item in order.line_items %}
           
-          {% include 'bold-cart-item' with line_item %}
-          <tr id="{{ line_item.key }}" class="{{ bold_row_class }}">
-            <td>
-              {{ line_item.title | link_to: line_item.product.url }}
-              
-              {{ bold_item_properties }}
-              
-              {% if line_item.fulfillment %}
-                <div class="note">
-                  {% assign created_at = line_item.fulfillment.created_at | date: format: 'month_day_year' %}
-                  {{ 'customer.order.fulfilled_at' | t: date: created_at }}
-                  {% if line_item.fulfillment.tracking_number %}
-                    <a href="{{ line_item.fulfillment.tracking_url }}">{{ line_item.fulfillment.tracking_company }} #{{ line_item.fulfillment.tracking_number}}</a>
-                  {% endif %}
-                </div>
-              {% endif %}
-            </td>
-            <td>{{ line_item.sku }}</td>
-            <td>{{ bold_item_price | money }}</td>
-            <td class="text-right">{{ line_item.quantity }}</td>
-            <td class="text-right">{{ line_item.quantity | times: bold_item_price | money }}</td>
-          </tr>
+            <tr id="{{ line_item.key }}" class="{{ bold_row_class }}">
+              <td>
+                {{ line_item.title | link_to: line_item.product.url }}
+                <!-- Bold:POv2 -->
+                {% assign propertySize = line_item.properties | size %}
+                {% if propertySize > 0 %}
+                  {% for p in line_item.properties %}
+                    {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                    {% unless p.last == blank or first_character_in_key == '_' %}
+                      {{ p.first }}:
+                      {% if p.last contains '/uploads/' %}
+                        <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {% else %}
+                        {{ p.last }}
+                      {% endif %}
+                    {% endunless %}
+                  {% endfor %}
+                {% endif %}
+                <!-- Bold:POv2 -->
+                {% if line_item.fulfillment %}
+                  <div class="note">
+                    {% assign created_at = line_item.fulfillment.created_at | date: format: 'month_day_year' %}
+                    {{ 'customer.order.fulfilled_at' | t: date: created_at }}
+                    {% if line_item.fulfillment.tracking_number %}
+                      <a href="{{ line_item.fulfillment.tracking_url }}">{{ line_item.fulfillment.tracking_company }} #{{ line_item.fulfillment.tracking_number}}</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </td>
+              <td>{{ line_item.sku }}</td>
+              <td>{{ line_item.price | money }}</td>
+              <td class="text-right">{{ line_item.quantity }}</td>
+              <td class="text-right">{{ line_item.quantity | times: line_item.price | money }}</td>
+            </tr>
           {% endfor %}
         </tbody>
         <tfoot>

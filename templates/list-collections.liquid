@@ -29,6 +29,8 @@
 
     <div class="grid-uniform">
       {% for product in collection.products limit:5 %}
+        {% comment %} Bold:POv2 {% endcomment %}
+        {%- include 'bold-product' with product, hide_action: 'skip' -%}      
         {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
         {% include 'product-grid-item' %}
       {% endfor %}
