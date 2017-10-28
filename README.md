@@ -10,7 +10,9 @@
     - Clone production theme using same naming convention as feature branch.
     - Preview cloned theme and grab theme ID from URL.
     - Run `gulpShopify('API KEY', 'PASSWORD', 'MYSITE.myshopify.com', 'THEME ID', options)` (Update task to accept env parameters)
-    - Run standard `gulp` task to push to theme once changes are tested and pushed to master. This will push code to the production theme ID.
+    - ~~Run standard `gulp` task to push to theme once changes are tested and pushed to master. This will push code to the production theme ID.~~
+    - Test cloned theme and make pull request.
+    - Merge pull request to master for deployment through deploybot.
 
 ## Shopify Development Resources
 [Timber Theme Documentation](https://shopify.github.io/Timber/)
