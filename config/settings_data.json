@@ -1,1 +1,24 @@
-{"current":"Default","presets":{"Default":{"ajax_cart_method":"drawer","cart_notes_enable":true,"color_body_bg":"#fff","color_body_text":"#333333","color_borders":"#e5e5e5","color_footer_bg":"#f2f2f2","color_footer_social_link":"#bbbbbb","color_footer_text":"#636363","color_primary":"#75abb7","color_secondary":"#e5acac","favicon_enable":false,"footer_newsletter_enable":true,"footer_social_enable":true,"logo_use_image":true,"social_facebook_link":"https:\/\/www.facebook.com\/Shay-Designs-Personalized-Jewelry-233993026615495\/","social_instagram_link":"https:\/\/www.instagram.com\/shaydesigns\/","social_pinterest_link":"https:\/\/www.pinterest.com\/shay123\/shay-designs\/"}}}
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#75abb7",
+      "color_secondary": "#e5acac",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": true,
+      "social_facebook_link": "https://www.facebook.com/Shay-Designs-Personalized-Jewelry-233993026615495/",
+      "social_instagram_link": "https://www.instagram.com/shaydesigns/",
+      "social_pinterest_link": "https://www.pinterest.com/shay123/shay-designs/"
+    }
+  }
+}
