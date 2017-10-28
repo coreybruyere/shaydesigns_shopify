@@ -9,7 +9,8 @@
 
 {% endcomment %}
 
-{% include 'bold-product' with product, hide_action: 'break' %}{% if bold_hidden_product %}{% break %}{%endif %}
+{% comment %} Bold:POv2 {% endcomment %}
+{%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
 
 <div itemscope itemtype="http://schema.org/Product">
 
@@ -60,11 +61,13 @@
         {% comment %}
           ID addToCartForm is a selector for the ajax cart plugin
         {% endcomment %}
-        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical shappify_add_to_cart_form" data-product-id="{{ product.id }}" enctype="multipart/form-data">
+        <!-- Bold:POv2 -->
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical" data-product-id="{{ product.id }}" enctype="multipart/form-data">
+        <!-- Bold:POv2 -->  
 
           {% comment %}
             Add product variants as a dropdown.
-              - By default, each variant (or combination of variants) will display as its own <option>
+              - By default, each variant (or combination of variants) will display as its own option
               - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
 
             You can leverage jQuery to add a callback on page load and each time the select element changes:
@@ -80,7 +83,7 @@
               {% if variant.available %}
 
                 {% comment %}
-                  Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                  Note: if you use option_selection.js, your select tag will be overwritten, meaning what you have inside option will not reflect what you coded below.
                 {% endcomment %}
                 <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
 
@@ -92,9 +95,9 @@
             {% endfor %}
           </select>
             
-          <!-- Bold: Options 4-2 -->
-          {% comment %} BOLD Options V1 Automatically Removed {% include 'shappify-options' %} {% endcomment %}
-          <!-- // end Options 4-2 -->
+          <!-- Bold:POv2 -->
+          <div class="bold_options" data-product-id="{{ product.id }}"></div>
+          <!-- Bold:POv2 -->
 
           <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
           <span id="ProductPrice" class="h2" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">

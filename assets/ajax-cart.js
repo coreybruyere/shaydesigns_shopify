@@ -226,7 +226,7 @@ var ajaxCart = (function(module, $) {
       // Bold:POv2      
       cartCountSelector  : null,
       cartCostSelector   : null,
-      moneyFormat        : '${{amount}}',
+      moneyFormat        : '$',
       disableAjaxCart    : false,
       enableQtySelectors : true
     };
@@ -339,7 +339,7 @@ var ajaxCart = (function(module, $) {
     // Show empty cart
     if (cart.item_count === 0) {
       $cartContainer
-        .append('<p>' + {{ 'cart.general.empty' | t | json }} + '</p>');
+        .append('<p>' + "Your cart is currently empty." + '</p>');
       cartCallback(cart);
       return;
     }
@@ -394,7 +394,7 @@ var ajaxCart = (function(module, $) {
       items: items,
       note: cart.note,
       totalPrice: Shopify.formatMoney(cart.total_price, settings.moneyFormat),
-      totalCartDiscount: cart.total_discount === 0 ? 0 : {{ 'cart.general.savings_html' | t: price: '[savings]' | json }}.replace('[savings]', Shopify.formatMoney(cart.total_discount, settings.moneyFormat)),
+      totalCartDiscount: cart.total_discount === 0 ? 0 : "You're saving [savings]".replace('[savings]', Shopify.formatMoney(cart.total_discount, settings.moneyFormat)),
       totalCartDiscountApplied: cart.total_discount === 0 ? false : true
     }
 
