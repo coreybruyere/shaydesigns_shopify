@@ -3,14 +3,14 @@
 1. Install locally.
 2. Run `npm install`.
 3. Run `gulp shopifywatch` to watch local file changes and upload to theme using gulp shopify-upload.
-  - Or use [Theme Kit](https://www.shopify.com/partners/blog/95401862-3-simple-steps-for-setting-up-a-local-shopify-theme-development-environment) to upload local files.
+    - Or use [Theme Kit](https://www.shopify.com/partners/blog/95401862-3-simple-steps-for-setting-up-a-local-shopify-theme-development-environment) to upload local files.
 4. For post-launch development:
-  - Pull latest from master and create new feature branch. Name branch using date and short title. For example: '0924_fix_broken_nav'
-  - Download production theme to new feature branch (In case of changes that were made by 3rd party devs).
-  - Clone production theme using same naming convention as feature branch.
-  - Preview cloned theme and grab theme ID from URL.
-  - Run `gulpShopify('API KEY', 'PASSWORD', 'MYSITE.myshopify.com', 'THEME ID', options)` (Update task to accept env parameters)
-  - Run standard `gulp` task to push to theme once changes are tested and pushed to master. This will push code to the production theme ID.
+    - Pull latest from master and create new feature branch. Name branch using date and short title. For example: '0924_fix_broken_nav'
+    - Download production theme to new feature branch (In case of changes that were made by 3rd party devs).
+    - Clone production theme using same naming convention as feature branch.
+    - Preview cloned theme and grab theme ID from URL.
+    - Run `gulpShopify('API KEY', 'PASSWORD', 'MYSITE.myshopify.com', 'THEME ID', options)` (Update task to accept env parameters)
+    - Run standard `gulp` task to push to theme once changes are tested and pushed to master. This will push code to the production theme ID.
 
 ## Shopify Development Resources
 [Timber Theme Documentation](https://shopify.github.io/Timber/)
