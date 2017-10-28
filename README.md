@@ -8,7 +8,8 @@
     - Pull latest from master and create new feature branch. Name branch using date and short title. For example: '0924_fix_broken_nav'
     - Download production theme to new feature branch (In case of changes that were made by 3rd party devs).
     - Clone production theme using same naming convention as feature branch.
-    - Preview cloned theme.
+    - Preview cloned theme and grab theme ID.
+    - Place theme ID in config.json as the value of `shopify_dev_theme_id`.
     - Run `gulp shopifywatch` to open up browser to cloned theme.
     - ~~Run standard `gulp` task to push to theme once changes are tested and pushed to master. This will push code to the production theme ID.~~
     - Test cloned theme and make pull request.
