@@ -349,6 +349,14 @@
             <div class="grid__item text-center">
               <hr>
               {% comment %}
+                Loop through footer menu.
+              {% endcomment %}
+              <ul class="inline-list">
+                {% for link in linklists.footer.links %}
+                  <li><a href= "{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+              {% comment %}
                 Loop through available payment methods and show their icons.
               {% endcomment %}
               {% unless shop.enabled_payment_types == empty %}
